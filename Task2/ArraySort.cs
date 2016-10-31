@@ -14,8 +14,11 @@ namespace Task2
         /// <param name="array">Sorting array</param>
         /// <param name="Compare">Method of sorting</param>
         /// <returns>Sorted array</returns>
+        /// <exception cref="NullReferenceException"></exception>
         public static int[][] Sort(int[][] array, CompareRows Compare )
         {
+            if (ReferenceEquals(array, null) || ReferenceEquals(Compare, null))
+                throw new NullReferenceException();
             for (int i = array.Length - 1; i > 0; i--)
             {
                 for (int j = 0; j < i; j++)
