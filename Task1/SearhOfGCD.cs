@@ -41,9 +41,9 @@ namespace Task1
             if (b == 0) return a;
             if (a == b) return a;
             if ((a == 1) || (b == 1)) return 1;
-            if ((a % 2 == 0) && (b % 2 == 0)) return 2 * SearchGCDByBinaryAlgorythm(a>>2, b>>2);
-            if ((a % 2 == 0) && (b % 2 != 0)) return SearchGCDByBinaryAlgorythm(a>>2, b);
-            if ((a % 2 != 0) && (b % 2 == 0)) return SearchGCDByBinaryAlgorythm(a, b>>2);
+            if ((a % 2 == 0) && (b % 2 == 0)) return 2 * SearchGCDByBinaryAlgorythm(a>>1, b>>1);
+            if ((a % 2 == 0) && (b % 2 != 0)) return SearchGCDByBinaryAlgorythm(a>>1, b);
+            if ((a % 2 != 0) && (b % 2 == 0)) return SearchGCDByBinaryAlgorythm(a, b>>1);
             TimeSpan time = DateTime.Now - start;
 
             return SearchGCDByBinaryAlgorythm(b, (long)Math.Abs(a - b));
