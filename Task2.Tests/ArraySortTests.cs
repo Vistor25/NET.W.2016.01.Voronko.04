@@ -11,9 +11,9 @@ namespace Task2.Tests
         public void TestCompareBySum()
         {
             int[][] array = {
-            new[] {1, -2, 3},
+            new[] {-16, -4, 3},
             new[] {0, 2, 13, 4},
-            new[] {1, 3},
+            new[] {1, 3,7,11},
             new[] {14}
         };
             int[][] testArray =  {
@@ -32,7 +32,7 @@ namespace Task2.Tests
         public void TestCompareByMaxElementm()
         {
             int[][] array = {
-            new[] {1, -2, 3},
+            new[] {-16, -4, 3},
             new[] {0, 2, 13, 4},
             new[] {1, 3},
             new[] {14}
@@ -40,7 +40,7 @@ namespace Task2.Tests
             int[][] testArray =  {
              new[] {14},
              new[] {0, 2, 13, 4},
-             new[] {1, -2, 3},
+             new[] {-16, -4, 3},
              new[] {1, 3},
              
         };
