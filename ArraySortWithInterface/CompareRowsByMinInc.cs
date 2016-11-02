@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace ArraySortWithInterface
 {
-    class CompareRowsBysum : IArraySorter
+    class CompareRowsByMinInc : IArraySorter
     {
         public int CompareRows(int[] row1, int[] row2)
         {
-            if (row1.Sum() > row2.Sum()) return 1;
-            if (row1.Sum() == row2.Sum()) return 0;
+            if (row1.Min() < row2.Min()) return 1;
+            if (row1.Min() == row2.Min()) return 0;
             return -1;
         }
     }

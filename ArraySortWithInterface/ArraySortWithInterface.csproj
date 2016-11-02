@@ -41,7 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArraySort.cs" />
-    <Compile Include="CompareRowsBysum.cs" />
+    <Compile Include="CompareRowsByMaxInc.cs" />
+    <Compile Include="CompareRowsByMaxDec.cs" />
+    <Compile Include="CompareRowsByMinDec.cs" />
+    <Compile Include="CompareRowsByMinInc.cs" />
     <Compile Include="IArraySorter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
