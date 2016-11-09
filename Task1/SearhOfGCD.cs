@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,48 @@ namespace Task1
 {
     public class SearhOfGCD
     {
+        private static long Search(long a, long b, Func<long, long, long> algorythmFunc)=> algorythmFunc(a, b);
+
+        private static long Search(long a, long b, out long ticks, Func<long, long, long> algorythmFunc)
+        {
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
+            long result = Search(a, b, algorythmFunc);
+            timer.Stop();
+            ticks = timer.ElapsedTicks;
+            return result;
+        }
+
+        private static long Search(Func<long, long, long> algorythmFunc, params long[] parameters)
+        {
+            long result = 0;
+            foreach (var VARIABLE in parameters)
+            {
+                result = Search(result, VARIABLE, algorythmFunc);
+            }
+            return result;
+        }
+
+        private static long Search(out long ticks, Func<long, long, long> algorythmFunc, params long[] parameters)
+        {
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
+            long result = Search(algorythmFunc, parameters);
+            timer.Stop();
+            ticks = timer.ElapsedTicks;
+            return result;
+        }
+
+        public static long EuclideanSearch(long a, long b) => Search(a, b, SearchGCDByClassicalEuclideanAlgorythm);
+        public static long EuclideanSearch(long a, long b, out long ticks) => Search(a, b, out ticks, SearchGCDByClassicalEuclideanAlgorythm);
+        public static long EuclideanSearch(params long[] parameters) => Search(SearchGCDByClassicalEuclideanAlgorythm, parameters);
+        public static long EuclideanSearch(out long ticks, params long[] parameters) => Search(out ticks, SearchGCDByClassicalEuclideanAlgorythm, parameters);
+
+        public static long BinaryEuclideanSearch(long a, long b) => Search(a, b, SearchGCDByBinaryAlgorythm);
+        public static long BinaryEuclideanSearch(long a, long b, out long ticks) => Search(a, b, out ticks, SearchGCDByBinaryAlgorythm);
+        public static long BinaryEuclideanSearch(params long[] parameters) => Search(SearchGCDByBinaryAlgorythm, parameters);
+        public static long BinaryEuclideanSearch(out long ticks, params long[] parameters) => Search(out ticks, SearchGCDByBinaryAlgorythm, parameters);
+
         private static long SearchGCDByClassicalEuclideanAlgorythm(long a, long b)
         {
             
@@ -24,20 +67,7 @@ namespace Task1
         /// </summary>
         /// <param name="numbersLongs">Numbers</param>
         /// <returns>Returns the GCD of n numbers</returns>
-        public static long SearchGCDByClassicalEuclideanAlgorythm(params long[] numbersLongs)
-        {
-            DateTime start = DateTime.Now;
-
-            if (numbersLongs.Length < 2) return numbersLongs[0];
-            long result = SearchGCDByClassicalEuclideanAlgorythm(numbersLongs[0], numbersLongs[1]); 
-            for (int i = 1; i < numbersLongs.Length - 1; i++)
-            {
-                 result = SearchGCDByClassicalEuclideanAlgorythm(result, numbersLongs[i + 1]);
-
-            }
-            TimeSpan time = DateTime.Now - start;
-            return result;
-        }
+      
 
         private static long SearchGCDByBinaryAlgorythm(long a, long b)
         {
@@ -59,19 +89,6 @@ namespace Task1
         /// </summary>
         /// <param name="numbersLongs">Numbers</param>
         /// <returns>Returns the GCD of n numbers</returns>
-        public static long SearchGCDByBinaryAlgorythm(params long[] numLongs)
-        {
-            DateTime start = DateTime.Now;
-            if (numLongs.Length < 2) return numLongs[0];
-            long result = SearchGCDByBinaryAlgorythm(numLongs[0], numLongs[1]);
-            for (int i = 1; i < numLongs.Length - 1; i++)
-            {
-                result = SearchGCDByBinaryAlgorythm(result, numLongs[i + 1]);
-
-            }
-            TimeSpan time = DateTime.Now - start;
-
-            return result;
-        }
+       
     }
 }

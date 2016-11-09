@@ -8,6 +8,13 @@ namespace ArraySortWithInterface
 {
     public class ArraySort
     {
+        /// <summary>
+        /// Sorts the strings of two dimensional array
+        /// </summary>
+        /// <param name="array">Array that we sort</param>
+        /// <param name="sorter">Method of sorting</param>
+        /// <returns>Sorted array</returns>
+        /// <exception cref="NullReferenceException"></exception>
         public static int[][] Sort(int[][] array, IArraySorter sorter)
         {
             if (ReferenceEquals(array, null) || ReferenceEquals(sorter, null))
