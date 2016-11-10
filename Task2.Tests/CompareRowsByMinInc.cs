@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ArraySortWithInterface
+namespace ArraySort
 {
     class CompareRowsByMinInc : IComparer<int[]>
     {

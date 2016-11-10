@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections;
-using ArraySortWithInterface;
+using ArraySort;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Task2Refatored;
+
+
 
 namespace Task2.Tests
 {
@@ -46,7 +47,7 @@ namespace Task2.Tests
              new[] {1, 3},
              
         };
-            ArraySort.Sort(array, new CompareRowsByMaxDec());
+            Task2Refatored.ArraySort.Sort(array, new CompareRowsByMaxDec());
 
             IStructuralEquatable arrays = array;
 
@@ -68,7 +69,7 @@ namespace Task2.Tests
              new[] {14},
 
         };
-            ArraySort.Sort(array, new CompareRowsByMaxInc());
+           Task2Refatored.ArraySort.Sort(array, new CompareRowsByMinInc());
 
             IStructuralEquatable arrays = array;
 
