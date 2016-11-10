@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Task2Refatored
 {
     public class ArraySort
     {
+        /// <summary>
+        /// Sorts the strings of matrix using interface
+        /// </summary>
+        /// <param name="array">the array we sort</param>
+        /// <param name="sorter">method of sorting</param>
         public static void Sort(int[][] array, IComparer<int[]> sorter)
         {
             if (ReferenceEquals(array, null) || ReferenceEquals(sorter, null))
@@ -25,7 +29,13 @@ namespace Task2Refatored
             
         }
 
+        /// <summary>
+        /// Sorts the strings of matrix using interface
+        /// </summary>
+        /// <param name="array">the array we sort</param>
+        /// <param name="sorter">method of sorting</param>
         public static void Sort(int[][] array, Func<int[], int[], int> sorter) => Sort(array, new DelegateAdapter(sorter));
+        
         
         class DelegateAdapter : IComparer<int[]>
         {
