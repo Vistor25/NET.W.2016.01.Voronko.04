@@ -9,6 +9,7 @@ namespace Task1
 {
     public class SearhOfGCD
     {
+
         private static long Search(long a, long b, Func<long, long, long> algorythmFunc)=> algorythmFunc(a, b);
 
         private static long Search(long a, long b, out long ticks, Func<long, long, long> algorythmFunc)
@@ -41,14 +42,62 @@ namespace Task1
             return result;
         }
 
+        /// <summary>
+        /// Searches the GCD of 2 numbers by standart Euclidean algorythm 
+        /// </summary>
+        /// <param name="a">first number</param>
+        /// <param name="b">second number</param>
+        /// <returns>the greatest commin divisor</returns>
         public static long EuclideanSearch(long a, long b) => Search(a, b, SearchGCDByClassicalEuclideanAlgorythm);
+        /// <summary>
+        /// Searches the GCD of 2 numbers by standart Euclidean algorythm with calculating the time of execution the algorythm
+        /// </summary>
+        /// <param name="a">first number</param>
+        /// <param name="b">second number</param>
+        /// <param name="ticks">number of elapsed ticks</param>
+        /// <returns>the greatest commin divisor</returns>
         public static long EuclideanSearch(long a, long b, out long ticks) => Search(a, b, out ticks, SearchGCDByClassicalEuclideanAlgorythm);
+        /// <summary>
+        /// Searches the GCD of N-numbers by standart Euclidean algorythm
+        /// </summary>
+        /// <param name="parameters">the array of numbers</param>
+        /// <returns>the greatest commin divisor</returns>
         public static long EuclideanSearch(params long[] parameters) => Search(SearchGCDByClassicalEuclideanAlgorythm, parameters);
+        /// <summary>
+        /// Searches the GCD of N-numbers by standart Euclidean algorythm with calculating the time of execution the algorythm
+        /// </summary>
+        /// <param name="ticks">number of elapsed ticks</param>
+        /// <param name="parameters">the array of numbers</param>
+        /// <returns>the greatest commin divisor</returns>
         public static long EuclideanSearch(out long ticks, params long[] parameters) => Search(out ticks, SearchGCDByClassicalEuclideanAlgorythm, parameters);
 
+        /// <summary>
+        /// Searches the GCD of 2 numbers by binary Euclidean algorythm 
+        /// </summary>
+        /// <param name="a">first number</param>
+        /// <param name="b">second number</param>
+        /// <returns>the greatest commin divisor</returns>
         public static long BinaryEuclideanSearch(long a, long b) => Search(a, b, SearchGCDByBinaryAlgorythm);
+        /// <summary>
+        /// Searches the GCD of 2 numbers by binary Euclidean algorythm with calculating the time of execution the algorythm
+        /// </summary>
+        /// <param name="a">first number</param>
+        /// <param name="b">second number</param>
+        /// <param name="ticks">number of elapsed ticks</param>
+        /// <returns>the greatest commin divisor</returns>
         public static long BinaryEuclideanSearch(long a, long b, out long ticks) => Search(a, b, out ticks, SearchGCDByBinaryAlgorythm);
+        /// <summary>
+        /// Searches the GCD of N-numbers by binary Euclidean algorythm
+        /// </summary>
+        /// <param name="parameters">the array of numbers</param>
+        /// <returns>the greatest commin divisor</returns>
         public static long BinaryEuclideanSearch(params long[] parameters) => Search(SearchGCDByBinaryAlgorythm, parameters);
+        /// <summary>
+        /// Searches the GCD of N-numbers by binary Euclidean algorythm with calculating the time of execution the algorythm
+        /// </summary>
+        /// <param name="ticks">number of elapsed ticks</param>
+        /// <param name="parameters">the array of numbers</param>
+        /// <returns>the greatest commin divisor</returns>
         public static long BinaryEuclideanSearch(out long ticks, params long[] parameters) => Search(out ticks, SearchGCDByBinaryAlgorythm, parameters);
 
         private static long SearchGCDByClassicalEuclideanAlgorythm(long a, long b)
