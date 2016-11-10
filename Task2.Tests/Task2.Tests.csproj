@@ -51,12 +51,16 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ArraySortTests.cs" />
+    <Compile Include="CompareRowsByMaxDec.cs" />
+    <Compile Include="CompareRowsByMaxInc.cs" />
+    <Compile Include="CompareRowsByMinDec.cs" />
+    <Compile Include="CompareRowsByMinInc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Task2\Task2.csproj">
-      <Project>{c8e89a86-2447-44db-8926-24c4c654ba44}</Project>
-      <Name>Task2</Name>
+    <ProjectReference Include="..\Task2Refatored\Task2Refatored.csproj">
+      <Project>{3b3ef90f-f489-4af1-b2f4-ddcff0427cb8}</Project>
+      <Name>Task2Refatored</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
